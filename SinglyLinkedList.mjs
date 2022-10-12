@@ -49,26 +49,3 @@ export default class SinglyLinkedList {
         return this;
     }
 }
-
-let list = new SinglyLinkedList();
-list.head = new Node(7, null);
-list.head.next = new Node(44, null);
-list.head.next.next = new Node(74, null);
-list.head.next.next.next = new Node(99, null);
-list.tail = list.head.next.next.next;
-// console.log(list);
-list.reverse();
-console.log(list);
-// console.log(list.tail.next);
-
-// list.head.next.next = list.head;
-// list.head = null;
-// console.log(list);
-
-// list.push({value: 777, next: null});
-// console.log(list);
-
-// lost = new SinglyLinkedList();
-// lost.head = new Node(999, null);
-// lost.push({value:6, next: null})
-// console.log(lost);
