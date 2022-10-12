@@ -14,7 +14,6 @@ export default class SinglyLinkedList {
     push (node) {
         const n = JSON.parse(JSON.stringify(node));
         if (this.head === null) {
-            console.log('hi')
             this.head = new Node(n.value, null);
         }else {
             let traverser = this.head;
