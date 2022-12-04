@@ -75,7 +75,31 @@ class DoublyLinkedList {
         node.next = null;
         return node;
     }
+
+    unshift(value) {
+        const node = new Node(value);
+        if(this.length === null) {
+            this.head = node;
+            this.tail = node;
+            this.length = 1;
+        } else {
+            node.next = this.head;
+            this.head.previous = node;
+            this.head = node;
+            this.length++;
+        }
+        return this;
+    }
 }
+
+
+// Checks for the unshift method
+
+// const myDoublyLinkedList = new DoublyLinkedList();
+// const list1 = myDoublyLinkedList.unshift('zew');
+// console.log(list1);
+// const list2 = myDoublyLinkedList.unshift('hahaa');
+// console.log(list2);
 
 
 //Checks for the shift method
