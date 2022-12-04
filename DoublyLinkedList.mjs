@@ -43,10 +43,10 @@ class DoublyLinkedList {
     }
 
     pop() {
-        const node = this.tail;
         if(this.length === null) {
             return undefined;
         }
+        const node = this.tail;
         if(this.length === 1) {
             this.head = null;
             this.tail = null;
@@ -59,7 +59,37 @@ class DoublyLinkedList {
         this.length--;
         return node;
     }
+
+    shift() {
+        if(this.length === null) return undefined;
+        const node = this.head;
+        if(this.length === 1) {
+            this.head = null;
+            this.tail = null;
+            this.length = null;
+            return node;
+        }
+        this.head = node.next;
+        this.head.previous = null;
+        this.length--;
+        node.next = null;
+        return node;
+    }
 }
+
+
+//Checks for the shift method
+
+// const myDoublyLinkedList = new DoublyLinkedList();
+// myDoublyLinkedList.push('hahaa');
+// myDoublyLinkedList.push('lala');
+// myDoublyLinkedList.push(3);
+// const myNode = myDoublyLinkedList.shift();
+// console.log(myNode);
+// console.log(myDoublyLinkedList);
+
+
+// Checks for the pop method
 
 // const myDoublyLinkedList = new DoublyLinkedList();
 // myDoublyLinkedList.push('hahaa');
