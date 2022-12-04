@@ -41,20 +41,50 @@ class DoublyLinkedList {
         }
         this.updateTail(node);
     }
+
+    pop() {
+        const node = this.tail;
+        if(this.length === null) {
+            return undefined;
+        }
+        if(this.length === 1) {
+            this.head = null;
+            this.tail = null;
+            this.length = null;
+            return node;
+        }
+        this.tail = node.previous;
+        this.tail.next.previous = null;
+        this.tail.next = null;
+        this.length--;
+        return node;
+    }
 }
 
+// const myDoublyLinkedList = new DoublyLinkedList();
+// myDoublyLinkedList.push('hahaa');
+// // const myNode = myDoublyLinkedList.pop();
+// // console.log(myNode);
+// myDoublyLinkedList.push('lalala');
+// const myNode = myDoublyLinkedList.pop();
+// console.log(myNode);
+// console.log(myDoublyLinkedList);
 
-const myDoublyLinkedList = new DoublyLinkedList();
-console.log(myDoublyLinkedList);
-
-myDoublyLinkedList.push('hahaa');
-console.log(myDoublyLinkedList);
 
 
-myDoublyLinkedList.push('lalal');
-console.log(myDoublyLinkedList);
+//Checks for the push method
 
-myDoublyLinkedList.push('zewzew');
-console.log(myDoublyLinkedList);
+// const myDoublyLinkedList = new DoublyLinkedList();
+// console.log(myDoublyLinkedList);
+
+// myDoublyLinkedList.push('hahaa');
+// console.log(myDoublyLinkedList);
+
+
+// myDoublyLinkedList.push('lalal');
+// console.log(myDoublyLinkedList);
+
+// myDoublyLinkedList.push('zewzew');
+// console.log(myDoublyLinkedList);
 
 //Everything went ok with the push method.
