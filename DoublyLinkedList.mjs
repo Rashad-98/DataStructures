@@ -40,6 +40,7 @@ class DoublyLinkedList {
             this.tail.next = node;
         }
         this.updateTail(node);
+        return this;
     }
 
     pop() {
@@ -90,7 +91,41 @@ class DoublyLinkedList {
         }
         return this;
     }
+
+    get(index) {
+        if((index < 0) || (index >= this.length)) return null;
+        if(index <= this.length/2) {
+            let count = 0;
+            let node = this.head;
+            while(count != index) {
+                node = node.next;
+                count++;
+            }
+            return node;
+        } else {
+            let count = this.length - 1;
+            let node = this.tail;
+            while(count != index) {
+                node = node.previous;
+                count--;
+            }
+            return node;
+        }
+    }
 }
+
+
+// Checks for the get method
+
+// const myDoublyLinkedList = new DoublyLinkedList();
+// myDoublyLinkedList.push('hehaahahaha');
+// myDoublyLinkedList.push('zazazazazazaz');
+// myDoublyLinkedList.push('lololololl');
+// myDoublyLinkedList.push('asasasasasaasasaas');
+// myDoublyLinkedList.push('vavavavavvavaavva');
+// const myNode = myDoublyLinkedList.get(4);
+// console.log(myNode);
+// console.log(myDoublyLinkedList);
 
 
 // Checks for the unshift method
