@@ -112,7 +112,85 @@ class DoublyLinkedList {
             return node;
         }
     }
+
+    set(index, value) {
+        let node = this.get(index);
+        if(node != null) {
+            node.value = value;
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    insert(index, value) {
+        if(index < 0 || index > this.length) return false;
+        if(index === 0) this.unshift(value);
+        if(index === this.length) this.push(value);
+        else {
+            const node = new Node(value);
+            const nodeBehind = this.get(index - 1);
+            nodeBehind.next.previous = node;
+            node.next = nodeBehind.next;
+            node.previous = nodeBehind;
+            nodeBehind.next = node;
+        }
+        this.length++;
+        return true;
+    }
+
+    remove(index) {
+        if(index < 0 || index >= this.length) return undefined;
+        if(index === 0) this.shift();
+        if(index === this.length-1) this.pop();
+        else {
+            var node = this.get(index);
+            const nodeBehind = node.previous;
+            const nodeAfter = node.next;
+            nodeBehind.next = nodeAfter;
+            nodeAfter.previous = nodeBehind;
+            node.next = null, node.previous = null;
+        }
+        this.length--;
+        return node;
+    }
 }
+
+// Checks for the remove method
+
+// const myDoublyLinkedList = new DoublyLinkedList();
+// myDoublyLinkedList.push('hehaahahaha');
+// myDoublyLinkedList.push('zazazazazazaz');
+// myDoublyLinkedList.push('lololololl');
+// myDoublyLinkedList.push('asasasasasaasasaas');
+// myDoublyLinkedList.push('vavavavavvavaavva');
+// myDoublyLinkedList.remove(2);
+// console.log(myDoublyLinkedList);
+
+
+//Checks for the insert method
+
+// const myDoublyLinkedList = new DoublyLinkedList();
+// myDoublyLinkedList.push('hehaahahaha');
+// myDoublyLinkedList.push('zazazazazazaz');
+// myDoublyLinkedList.push('lololololl');
+// myDoublyLinkedList.push('asasasasasaasasaas');
+// myDoublyLinkedList.push('vavavavavvavaavva');
+// myDoublyLinkedList.insert(1,555555);
+// console.log(myDoublyLinkedList);
+
+
+// Checks for the set method
+
+// const myDoublyLinkedList = new DoublyLinkedList();
+// myDoublyLinkedList.push('hehaahahaha');
+// myDoublyLinkedList.push('zazazazazazaz');
+// myDoublyLinkedList.push('lololololl');
+// myDoublyLinkedList.push('asasasasasaasasaas');
+// myDoublyLinkedList.push('vavavavavvavaavva');
+// myDoublyLinkedList.set(1, 3333333333333333);
+// console.log(myDoublyLinkedList);
+
 
 
 // Checks for the get method
