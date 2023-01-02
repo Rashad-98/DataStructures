@@ -22,7 +22,7 @@ class Queue {
             this.last = node;
         }
         this.length++;
-        return value;
+        return this.length;
     }
 
     dequeue() {
