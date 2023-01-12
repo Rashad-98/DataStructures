@@ -28,10 +28,14 @@ class BinarySearchTree {
                 traverserRoot = traverserRoot.left;
                 traverser(traverserRoot, newNode);
             }
+            if(newNode.value === traverserRoot.value) {
+                return undefined;
+            }
         })(traverserRoot, newNode)
     }
 
     insert (value) {
+        // This method returns undefined when their are duplicate nodes.
         const node = new Node(value);
         if(this.root === null) return this.root = node;
         this.#recursiveTraverser(this.root, node);
@@ -42,6 +46,7 @@ class BinarySearchTree {
 // tests
 // const tree = new BinarySearchTree();
 // tree.insert(5);
+// console.log(tree.insert(5));
 // tree.insert(7);
 // tree.insert(3);
 // tree.insert(4);
