@@ -61,6 +61,8 @@ class BinarySearchTree {
     }
 }
 
+export default BinarySearchTree
+
 
 // tests
 // const tree = new BinarySearchTree();
